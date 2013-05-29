@@ -52,9 +52,11 @@ class Colorscheme(object):
 				self.colors[color_name] = (color[0], int(color[1], 16))
 			except TypeError:
 				self.colors[color_name] = (color, cterm_to_hex[color])
+			except IndexError:
+				self.colors[color_name] = (None, None)
 
-		# Create a dict of gradient names with two lists: for cterm and hex 
-		# values. Two lists in place of one list of pairs were chosen because 
+		# Create a dict of gradient names with two lists: for cterm and hex
+		# values. Two lists in place of one list of pairs were chosen because
 		# true colors allow more precise gradients.
 		for gradient_name, gradient in colors_config['gradients'].items():
 			if len(gradient) == 2:

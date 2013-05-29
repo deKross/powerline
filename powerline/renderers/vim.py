@@ -57,7 +57,7 @@ class VimRenderer(Renderer):
 		if sys.version_info < (3,):
 			@staticmethod
 			def strwidth(string):
-				# Does not work with tabs, but neither is strwidth from default 
+				# Does not work with tabs, but neither is strwidth from default
 				# renderer
 				return vim.strwidth(string.encode('utf-8'))
 		else:
